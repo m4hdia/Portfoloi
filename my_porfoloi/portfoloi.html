@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mehdi Azou - Développeur Full Stack</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/TextPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scroll progress indicator -->
+  <div class="progress-bar"></div>
+  
+  <!-- Custom cursor -->
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+  
+  <!-- Cube animations throughout the page -->
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  <div class="cube"></div>
+  
+  <!-- Bottom cubes -->
+  <div class="bottom-cube"></div>
+  <div class="bottom-cube"></div>
+  <div class="bottom-cube"></div>
+  <div class="bottom-cube"></div>
+  <div class="bottom-cube"></div>
+  
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="logo">
+      <i class="fas fa-code wow-icon"></i> Mehdi<span>Azou</span>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="active"><i class="fas fa-home wow-icon"></i> Accueil</a>
+      <a href="#about"><i class="fas fa-user wow-icon"></i> À propos</a>
+      <a href="#skills"><i class="fas fa-code wow-icon"></i> Compétences</a>
+      <a href="#projects"><i class="fas fa-project-diagram wow-icon"></i> Projets</a>
+      <a href="#contact"><i class="fas fa-envelope wow-icon"></i> Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun light-icon wow-icon"></i>
+        <i class="fas fa-moon dark-icon wow-icon"></i>
+      </button>
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars wow-icon"></i>
+      </button>
+    </div>
+  </nav>
+  
+  <!-- Header Section -->
+  <header id="home">
+    <div id="canvas-container"></div>
+    <div class="header-content">
+      <div class="profile-section">
+        <img src="Mehdi.jpg" alt="Mehdi" class="profile-image">
+        <div class="profile-text">
+          <h1>Salut, je suis Mehdi</h1>
+          <h2>Développeur Full Stack</h2>
+        </div>
+      </div>
+      <div class="typed-text" id="typedText"></div>
+      <p>Passionné par les technologies et motivé à apprendre et innover. Je développe mes compétences en front-end et back-end pour créer des expériences digitales exceptionnelles.</p>
+      <div class="btn-container">
+        <a href="#projects" class="btn"><i class="fas fa-eye wow-icon"></i> Voir mes projets</a>
+        <a href="#contact" class="btn btn-outline"><i class="fas fa-paper-plane wow-icon"></i> Contactez-moi</a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- About Section -->
+  <section id="about">
+    <div class="section-header">
+      <h2 class="section-title">À propos de moi</h2>
+      <p class="section-subtitle">Développeur Full Stack passionné par les technologies</p>
+    </div>
+    
+    <div class="about-container">
+      <div class="about-content">
+        <div class="about-text">
+          <h3 class="wow fadeInUp">Je suis Mehdi Azou</h3>
+          <p class="wow fadeInUp" data-wow-delay="0.2s">Développeur informatique fullstack débutant, passionné par les technologies et motivé à apprendre et à innover.</p>
+          <p class="wow fadeInUp" data-wow-delay="0.4s">Mon objectif est de développer mes compétences à la fois en front-end et en back-end, tout en travaillant sur des projets variés. Je suis déterminé à évoluer dans ce domaine en pleine expansion et à contribuer, avec créativité, à des projets ambitieux.</p>
+        </div>
+        <div class="skills-container">
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Frontend</span>
+              <span class="skill-percent">90%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress frontend" data-width="90"></div>
+            </div>
+          </div>
+        
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Backend</span>
+              <span class="skill-percent">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress backend" data-width="80"></div>
+            </div>
+          </div>
+        
+          <div class="skill-item">
+            <div class="skill-info">
+              <span class="skill-name">Database</span>
+              <span class="skill-percent">80%</span>
+            </div>
+            <div class="skill-bar">
+              <div class="skill-progress database" data-width="80"></div>
+            </div>
+          </div>
+        
+          <div class="location">
+            <span class="location-icon">●</span>
+            <span>Maroc, Azrou</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="about-image wow zoomIn" data-wow-delay="0.3s">
+        <img src="Mehdi.jpg" alt="Mehdi Azou" class="profile-photo">
+        <div class="image-border"></div>
+      </div>
+    </div>
+    
+  </section>
+  
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="section-header">
+      <h2 class="section-title">Mes Compétences</h2>
+      <p class="section-subtitle">Technologies que je maîtrise pour créer des solutions innovantes</p>
+    </div>
+    
+    <div class="skills">
+      <div class="skill-card">
+        <div class="skill-icon wow-icon">
+          <i class="fab fa-react"></i>
+        </div>
+        <h3>Frontend</h3>
+        <p>Développement d'interfaces utilisateur avec React, JavaScript, Tailwind CSS et Css, Bootstrap.</p>
+        <div class="skill-level">
+          <div class="skill-progress" data-progress="90"></div>
+        </div>
+      </div>
+      
+      <div class="skill-card">
+        <div class="skill-icon wow-icon">
+          <i class="fas fa-server"></i>
+        </div>
+        <h3>Backend</h3>
+        <p>Création d'APIs et logique serveur avec Laravel, Python et Node.js.</p>
+        <div class="skill-level">
+          <div class="skill-progress" data-progress="85"></div>
+        </div>
+      </div>
+      
+      <div class="skill-card">
+        <div class="skill-icon wow-icon">
+          <i class="fas fa-database"></i>
+        </div>
+        <h3>Bases de données</h3>
+        <p>Conception et optimisation avec MySQL, MongoDB et systèmes relationnels.</p>
+        <div class="skill-level">
+          <div class="skill-progress" data-progress="80"></div>
+        </div>
+      </div>
+      
+      <div class="skill-card">
+        <div class="skill-icon wow-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3>Outils</h3>
+        <p>Git, GitHub, Docker , Photoshop </p>
+        <div class="skill-level">
+          <div class="skill-progress" data-progress="88"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="section-header">
+      <h2 class="section-title">Mes Projets</h2>
+      <p class="section-subtitle">Découvrez une sélection de mes projets les plus récents</p>
+    </div>
+    
+    <div class="projects-filter">
+      <button class="filter-btn active" data-filter="all">Tous</button>
+      <button class="filter-btn" data-filter="web">Web App</button>
+      <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+      <button class="filter-btn" data-filter="platform">Platform</button>
+    </div>
+    
+    <div class="projects-container">
+      <div class="project-card" data-category="web">
+        <div class="project-img">
+          <img src="image.png" alt="Exam Platform">
+          <div class="project-category">Web App</div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Exam Platform</h3>
+          <p class="project-desc">Une plateforme complète d'examen en ligne avec gestion des questions, des réponses et des résultats.</p>
+          <div class="project-tech">
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-link wow-icon"></i></a>
+            <a href="https://github.com/m4hdia/Project_exaam_online/blob/main/exam_online" class="project-link"><i class="fab fa-github wow-icon"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card" data-category="web">
+        <div class="project-img">
+          <img src="image1.png" alt="Smart Voice Notes">
+          <div class="project-category">Web App</div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">Smart Voice Notes</h3>
+          <p class="project-desc">Application de prise de notes vocales avec reconnaissance et transcription automatique.</p>
+          <div class="project-tech">
+            <span class="tech-tag">PHP</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-link wow-icon"></i></a>
+            <a href="https://github.com/m4hdia/project_notes" class="project-link"><i class="fab fa-github wow-icon"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="project-card" data-category="ecommerce">
+        <div class="project-img">
+          <img src="https://via.placeholder.com/600x400" alt="E-commerce Store">
+          <div class="project-category">E-commerce</div>
+        </div>
+        <div class="project-content">
+          <h3 class="project-title">E-commerce Store</h3>
+          <p class="project-desc">Boutique en ligne complète avec gestion des produits, panier et paiement sécurisé.</p>
+          <div class="project-tech">
+            <span class="tech-tag">Laravel</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">MySQL</span>
+          </div>
+          <div class="project-links">
+            <a href="#" class="project-link"><i class="fas fa-link wow-icon"></i></a>
+            <a href="#" class="project-link"><i class="fab fa-github wow-icon"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="section-header">
+      <h2 class="section-title">Contactez-moi</h2>
+      <p class="section-subtitle">Intéressé par une collaboration ? N'hésitez pas à me contacter</p>
+    </div>
+
+    <div class="contact-container">
+      <div class="contact-info">
+        <h3 class="contact-title">Travaillons ensemble</h3>
+        <p class="contact-desc">Je suis actuellement disponible pour des missions freelance et des postes à temps plein. Si vous avez un projet qui nécessite une expertise technique ou créative, contactez-moi.</p>
+        
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon wow-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-text">mahdiazou33@gmail.com</div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon wow-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-text">(+212) 701763194</div>
+          </div>
+        
+          <div class="contact-item">
+            <div class="contact-icon wow-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-text">Maroc, Azrou</div>
+          </div>
+        </div>
+        
+        <div class="social-links">
+          <a href="https://github.com/m4hdia" class="social-link"><i class="fab fa-github wow-icon"></i></a>
+          <a href="https://www.linkedin.com/in/mehdi-azou-631435327/" class="social-link"><i class="fab fa-linkedin wow-icon"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter wow-icon"></i></a>
+          <a href="https://instagram.com/m4hdi_ex" class="social-link"><i class="fab fa-instagram wow-icon"></i></a>
+        </div>
+      </div>
+      
+      <div class="contact-form">
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Votre Nom</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Votre Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject">Sujet</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Votre Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn wow-icon">Envoyer le message</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- CV Download Section -->
+    <div class="cv-download">
+      <i class="fas fa-file-pdf cv-icon pulse wow-icon"></i>
+      <h3 class="cv-title">Téléchargez mon CV</h3>
+      <p class="cv-text">Obtenez une vue d'ensemble complète de mes compétences, expériences et formations dans un document PDF professionnel.</p>
+      <a href="Mahdi_Azou_CV.pdf" download class="download-btn wow-icon">
+        <i class="fas fa-download wow-icon"></i> Télécharger CV
+      </a>
+    </div>
+    
+    <!-- Social Media Links -->
+    <div class="social-media-links">
+      <a href="https://wa.me/+212701763194" class="social-media-link whatsapp">
+        <i class="fab fa-whatsapp wow-icon"></i>
+      </a>
+      <a href="https://instagram.com/m4hdi_ex" class="social-media-link instagram">
+        <i class="fab fa-instagram wow-icon"></i>
+      </a>
+      <a href="mailto:mahdiazou33@gmail.com" class="social-media-link gmail">
+        <i class="fas fa-envelope wow-icon"></i>
+      </a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-about">
+        <div class="footer-logo">
+          <i class="fas fa-code wow-icon"></i> Mehdi<span>Azou</span>
+        </div>
+        <p class="footer-text">Développeur Full Stack passionné par la création d'applications web interactives et conviviales qui résolvent des problèmes réels.</p>
+        <div class="social-links">
+          <a href="https://github.com/m4hdia" class="social-link"><i class="fab fa-github wow-icon"></i></a>
+          <a href="https://www.linkedin.com/in/mehdi-azou-631435327/" class="social-link"><i class="fab fa-linkedin wow-icon"></i></a>
+          <a href="#" class="social-link"><i class="fab fa-twitter wow-icon"></i></a>
+          <a href="https://instagram.com/m4hdi_ex" class="social-link"><i class="fab fa-instagram wow-icon"></i></a>
+        </div>
+      </div>
+    
+      <div class="footer-links-container">
+        <h3 class="footer-title">Liens rapides</h3>
+        <div class="footer-links">
+          <a href="#home" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> Accueil</a>
+          <a href="#about" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> À propos</a>
+          <a href="#skills" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> Compétences</a>
+          <a href="#projects" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> Projets</a>
+          <a href="#contact" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> Contact</a>
+        </div>
+      </div>
+      
+      <div class="footer-links-container">
+        <h3 class="footer-title">Ressources</h3>
+        <div class="footer-links">
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> Blog</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> CV</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> Outils</a>
+          <a href="#" class="footer-link"><i class="fas fa-chevron-right wow-icon"></i> FAQ</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2025 Mehdi Azou. Tous droits réservés.</p>
+    </div>
+  </footer>
+  
+  <!-- Back to Top Button -->
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up wow-icon"></i>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="style.js">
+    
+  </script>
+</body>
+</html>
