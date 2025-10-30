@@ -94,18 +94,9 @@ document
     });
   });
 
-// Typed text effect
+// Typed text effect + i18n support
 const typedText = document.getElementById("typedText");
-const phrases = [
-  "Développement Frontend",
-  "Développement Backend",
-  "Applications Web",
-  "React & Laravel",
-  "JavaScript & PHP",
-  "Bases de données",
-  "Expériences utilisateur",
-  "Graphic Designer"
-];
+let phrases = [];
 
 let currentPhraseIndex = 0;
 let currentCharIndex = 0;
@@ -135,6 +126,183 @@ function typeText() {
   }
 
   setTimeout(typeText, typingSpeed);
+}
+
+// i18n translations
+const translations = {
+  fr: {
+    "aboutSkill.frontend": "Frontend",
+    "aboutSkill.backend": "Backend",
+    "aboutSkill.database": "Database",
+    "meta.title": "Mehdi Azou - Développeur Full Stack",
+    "nav.home": "Accueil",
+    "nav.about": "À propos",
+    "nav.skills": "Compétences",
+    "nav.projects": "Projets",
+    "nav.contact": "Contact",
+    "hero.title": "Salut, je suis Mehdi",
+    "hero.subtitle": "Développeur Full Stack",
+    "hero.desc":
+      "Passionné par les technologies et motivé à apprendre et innover. Je développe mes compétences en front-end et back-end pour créer des expériences digitales exceptionnelles.",
+    "btn.viewProjects": "Voir mes projets",
+    "btn.contactMe": "Contactez-moi",
+    "about.title": "À propos de moi",
+    "about.subtitle": "Développeur Full Stack passionné par les technologies",
+    "skills.title": "Mes Compétences",
+    "skills.subtitle":
+      "Technologies que je maîtrise pour créer des solutions innovantes",
+    "projects.title": "Mes Projets",
+    "projects.subtitle":
+      "Découvrez une sélection de mes projets les plus récents",
+    "projects.filter.all": "Tous",
+    "projects.filter.web": "Web App",
+    "projects.filter.ecommerce": "E-commerce",
+    "projects.filter.platform": "Platform",
+    "contact.title": "Contactez-moi",
+    "contact.subtitle":
+      "Intéressé par une collaboration ? N'hésitez pas à me contacter",
+    "contact.desc":
+      "Je suis actuellement disponible pour des missions freelance et des postes à temps plein. Si vous avez un projet qui nécessite une expertise technique ou créative, contactez-moi.",
+    "form.name": "Votre Nom",
+    "form.email": "Votre Email",
+    "form.subject": "Sujet",
+    "form.message": "Votre Message",
+    "form.send": "Envoyer le message",
+    "cv.title": "Téléchargez mon CV",
+    "cv.text":
+      "Obtenez une vue d'ensemble complète de mes compétences, expériences et formations dans un document PDF professionnel.",
+    "cv.download": "Télécharger CV",
+    "about.p1":
+      "Développeur informatique fullstack débutant, passionné par les technologies et motivé à apprendre et à innover.",
+    "about.p2":
+      "Mon objectif est de développer mes compétences à la fois en front-end et en back-end, tout en travaillant sur des projets variés. Je suis déterminé à évoluer dans ce domaine en pleine expansion et à contribuer, avec créativité, à des projets ambitieux.",
+    "skill.frontend.title": "Frontend",
+    "skill.frontend.desc":
+      "Développement d'interfaces utilisateur avec React, JavaScript, Tailwind CSS et Css, Bootstrap.",
+    "skill.backend.title": "Backend",
+    "skill.backend.desc":
+      "Création d'APIs et logique serveur avec Laravel, Python et Node.js.",
+    "skill.db.title": "Bases de données",
+    "skill.db.desc":
+      "Conception et optimisation avec MySQL, MongoDB et systèmes relationnels.",
+    "project1.desc":
+      "Une plateforme complète d'examen en ligne avec gestion des questions, des réponses et des résultats.",
+    "project2.desc":
+      "Application de prise de notes vocales avec reconnaissance et transcription automatique.",
+    "project3.desc":
+      "Plateforme moderne pour découvrir, ajouter et partager des recettes. Parcourez les catégories, enregistrez vos favoris et explorez des recettes détaillées avec étapes, ingrédients et médias.",
+    "footer.text":
+      "Développeur Full Stack passionné par la création d'applications web interactives et conviviales qui résolvent des problèmes réels.",
+    "resources.blog": "Blog",
+    "resources.cv": "CV",
+    "resources.tools": "Outils",
+    "resources.faq": "FAQ",
+    "footer.copyright": "© 2025 Mehdi Azou. Tous droits réservés.",
+  },
+  en: {
+    "aboutSkill.frontend": "Frontend",
+    "aboutSkill.backend": "Backend",
+    "aboutSkill.database": "Database",
+    "meta.title": "Mehdi Azou - Full Stack Developer",
+    "nav.home": "Home",
+    "nav.about": "About",
+    "nav.skills": "Skills",
+    "nav.projects": "Projects",
+    "nav.contact": "Contact",
+    "hero.title": "Hi, I'm Mehdi",
+    "hero.subtitle": "Full Stack Developer",
+    "hero.desc":
+      "Passionate about technology, eager to learn and innovate. I build frontend and backend skills to create exceptional digital experiences.",
+    "btn.viewProjects": "View my projects",
+    "btn.contactMe": "Contact me",
+    "about.title": "About me",
+    "about.subtitle": "Full Stack Developer passionate about technology",
+    "skills.title": "My Skills",
+    "skills.subtitle": "Technologies I use to build innovative solutions",
+    "projects.title": "My Projects",
+    "projects.subtitle": "A selection of my most recent projects",
+    "projects.filter.all": "All",
+    "projects.filter.web": "Web App",
+    "projects.filter.ecommerce": "E-commerce",
+    "projects.filter.platform": "Platform",
+    "contact.title": "Contact me",
+    "contact.subtitle": "Interested in collaborating? Feel free to reach out",
+    "contact.desc":
+      "I am currently available for freelance missions and full-time positions. If you have a project that needs technical or creative expertise, feel free to reach out.",
+    "form.name": "Your Name",
+    "form.email": "Your Email",
+    "form.subject": "Subject",
+    "form.message": "Your Message",
+    "form.send": "Send message",
+    "cv.title": "Download my Resume",
+    "cv.text":
+      "Get a complete overview of my skills, experience and education in a professional PDF.",
+    "cv.download": "Download CV",
+    "about.p1":
+      "Junior fullstack developer, passionate about technology and eager to learn and innovate.",
+    "about.p2":
+      "My goal is to develop both frontend and backend skills while working on diverse projects. I’m determined to progress in this growing field and contribute creatively to ambitious projects.",
+    "skill.frontend.title": "Frontend",
+    "skill.frontend.desc":
+      "Building user interfaces with React, JavaScript, Tailwind CSS, CSS and Bootstrap.",
+    "skill.backend.title": "Backend",
+    "skill.backend.desc":
+      "Creating APIs and server logic with Laravel, Python and Node.js.",
+    "skill.db.title": "Databases",
+    "skill.db.desc":
+      "Design and optimization with MySQL, MongoDB and relational systems.",
+    "project1.desc":
+      "A complete online exam platform with question, answer and result management.",
+    "project2.desc":
+      "Voice note-taking app with recognition and automatic transcription.",
+    "project3.desc":
+      "Modern platform to discover, add and share recipes. Browse categories, save favorites, and explore detailed recipes with steps, ingredients and media.",
+    "footer.text":
+      "Full Stack Developer passionate about building interactive and user-friendly web apps that solve real problems.",
+    "resources.blog": "Blog",
+    "resources.cv": "Resume",
+    "resources.tools": "Tools",
+    "resources.faq": "FAQ",
+    "footer.copyright": "© 2025 Mehdi Azou. All rights reserved.",
+  },
+};
+
+function applyTranslations(lang) {
+  document.documentElement.setAttribute("lang", lang);
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n");
+    const t = translations[lang][key];
+    if (t) el.textContent = t;
+  });
+}
+
+function setTypedPhrases(lang) {
+  phrases =
+    lang === "en"
+      ? [
+          "Frontend Development",
+          "Backend Development",
+          "Web Applications",
+          "React & Laravel",
+          "JavaScript & PHP",
+          "Databases",
+          "User Experiences",
+          "Graphic Designer",
+        ]
+      : [
+          "Développement Frontend",
+          "Développement Backend",
+          "Applications Web",
+          "React & Laravel",
+          "JavaScript & PHP",
+          "Bases de données",
+          "Expériences utilisateur",
+          "Graphic Designer",
+        ];
+  // reset typing
+  currentPhraseIndex = 0;
+  currentCharIndex = 0;
+  isDeleting = false;
 }
 
 // Project filtering
@@ -174,14 +342,19 @@ filterBtns.forEach((btn) => {
 
 // Dark/Light mode toggle
 const themeToggle = document.getElementById("themeToggle");
+const themeIcon = document.getElementById("themeIcon");
 const body = document.body;
-const lightIcon = document.querySelector(".light-icon");
-const darkIcon = document.querySelector(".dark-icon");
+const langToggle = document.getElementById("langToggle");
 
-// Check for saved user preference or use dark mode as default
+// Initialize theme & language
 const currentTheme = localStorage.getItem("theme") || "dark";
 body.setAttribute("data-theme", currentTheme);
-updateIcons(currentTheme);
+updateThemeIcon(currentTheme);
+
+const currentLang = localStorage.getItem("lang") || "fr";
+applyTranslations(currentLang);
+setTypedPhrases(currentLang);
+if (langToggle) langToggle.textContent = currentLang === "en" ? "FR" : "EN";
 
 themeToggle.addEventListener("click", () => {
   const currentTheme = body.getAttribute("data-theme");
@@ -189,7 +362,7 @@ themeToggle.addEventListener("click", () => {
 
   body.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
-  updateIcons(newTheme);
+  updateThemeIcon(newTheme);
 
   // Animate the toggle switch
   gsap.to(".theme-toggle", {
@@ -198,23 +371,19 @@ themeToggle.addEventListener("click", () => {
   });
 });
 
-function updateIcons(theme) {
-  if (theme === "light") {
-    lightIcon.style.display = "block";
-    darkIcon.style.display = "none";
-  } else {
-    lightIcon.style.display = "none";
-    darkIcon.style.display = "block";
-  }
+function updateThemeIcon(theme) {
+  if (!themeIcon) return;
+  themeIcon.className = theme === "light" ? "fas fa-sun wow-icon" : "fas fa-moon wow-icon";
 }
 
-// Animate skill progress bars
+// Animate skill progress bars (supports data-width and data-progress)
 function animateSkills() {
   document.querySelectorAll(".skill-progress").forEach((progress) => {
-    const value = progress.getAttribute("data-progress") + "%";
+    const raw = progress.getAttribute("data-width") || progress.getAttribute("data-progress") || "0";
+    const value = raw + "%";
     gsap.to(progress, {
       width: value,
-      duration: 1.5,
+      duration: 1.2,
       ease: "power2.out",
       scrollTrigger: {
         trigger: progress,
@@ -223,12 +392,13 @@ function animateSkills() {
     });
   });
 
-  // Animate about section skill bars
+  // Backward-compat: animate any legacy .skill-level bars with data-width
   document.querySelectorAll(".skill-level").forEach((bar) => {
     const width = bar.getAttribute("data-width");
+    if (!width) return;
     gsap.to(bar, {
       width: width,
-      duration: 1.5,
+      duration: 1.2,
       ease: "power2.out",
       scrollTrigger: {
         trigger: bar,
@@ -486,12 +656,24 @@ window.addEventListener("load", function () {
 
   // Set initial theme toggle position
   const currentTheme = body.getAttribute("data-theme");
-  updateIcons(currentTheme);
+  updateThemeIcon(currentTheme);
   gsap.set(".theme-toggle", {
     backgroundColor:
       currentTheme === "light" ? "var(--accent)" : "var(--primary)",
   });
 });
+
+// Language toggle
+if (langToggle) {
+  langToggle.addEventListener("click", () => {
+    const current = localStorage.getItem("lang") || "fr";
+    const next = current === "fr" ? "en" : "fr";
+    localStorage.setItem("lang", next);
+    applyTranslations(next);
+    setTypedPhrases(next);
+    if (langToggle) langToggle.textContent = next === "en" ? "FR" : "EN";
+  });
+}
 
 // Form submission
 document.getElementById("contactForm").addEventListener("submit", function (e) {
@@ -522,6 +704,9 @@ document.getElementById("themeToggle").addEventListener("click", function () {
 
   body.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
+
+  // Keep the single icon in sync
+  updateThemeIcon(newTheme);
 
   // Animation du bouton
   gsap.to(this, {
@@ -572,6 +757,12 @@ function updateThemeToggle(theme) {
   const sunIcon = document.querySelector(".sun-icon");
   const moonIcon = document.querySelector(".moon-icon");
   const slider = document.querySelector(".theme-toggle-slider");
+
+  // If enhanced toggle elements are missing, just update the single icon and exit
+  if (!sunIcon || !moonIcon || !slider) {
+    updateThemeIcon(theme);
+    return;
+  }
 
   if (theme === "dark") {
     gsap.to(slider, {
